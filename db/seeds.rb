@@ -7,6 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.delete_all
+BlogPost.delete_all
+Comment.delete_all
 
 users = User.create([
 	{
@@ -23,5 +25,61 @@ users = User.create([
 		email: "victorquiroga@api.com",
 		password: "victor1234",
 		name: "Victor Quiroga"
+	},
+	{
+		email: "matthewsalerno@api.com",
+		password: "matt1234",
+		name: "Matthew Salerno"
+	}
+])
+
+blog_posts = BlogPost.create([
+	{
+		title: "First Blog Post",
+		body: "wowwww my first blog post",
+		user_id: users[0].id
+	},
+	{
+		title: "Second Blog Post",
+		body: "wowwww my second blog post",
+		user_id: users[1].id
+	},
+	{
+		title: "Third Blog Post",
+		body: "wowwww my third blog post",
+		user_id: users[2].id
+	}
+])
+
+comments = Comment.create([
+	{
+		body: "Comment by Nico Lara",
+		blogPost_id: blog_posts[0].id,
+		user_id: users[0].id
+	},
+	{
+		body: "Comment by Nico Lara",
+		blogPost_id: blog_posts[1].id,
+		user_id: users[0].id
+	},
+	{
+		body: "Comment by Nico Lara",
+		blogPost_id: blog_posts[2].id,
+		user_id: users[0].id
+	},
+	{
+		body: "Comment by Rodrigo Pavano",
+		blogPost_id: blog_posts[0].id,
+		user_id: users[1].id
+	},
+	{
+		body: "Comment by Rodrigo Pavano",
+		blogPost_id: blog_posts[1].id,
+		user_id: users[1].id
+	},
+	{
+		body: "Comment by Matthew Salerno",
+		blogPost_id: blog_posts[0].id,
+		user_id: users[3].id
 	}
 ])
